@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="伴星视觉样片：工作台，今日任务队列与异常提醒，全部为示例数据。">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>工作台 - 伴星 视觉样片</title>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></symbol>
+  <symbol id="i-orders" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+  <symbol id="i-goods" viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4-8-4Z"/><path d="m4 7 8 4v10l-8-4V7Zm16 0-8 4v10l8-4V7Z"/></symbol>
+  <symbol id="i-stock" viewBox="0 0 24 24"><path d="M3 4h18v5H3zM5 9h14v11H5z"/><path d="M9 13h6"/></symbol>
+  <symbol id="i-aftersale" viewBox="0 0 24 24"><path d="M20 6v5h-5M4 18v-5h5"/><path d="M6 9a7 7 0 0 1 12-2l2 4M4 13l2 4a7 7 0 0 0 12-2"/></symbol>
+  <symbol id="i-stats" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-ledger" viewBox="0 0 24 24"><path d="M5 3h13a2 2 0 0 1 2 2v16H6a3 3 0 0 1-3-3V5a2 2 0 0 1 2-2Z"/><path d="M7 3v18M11 8h5M11 12h5"/></symbol>
+  <symbol id="i-content" viewBox="0 0 24 24"><path d="m4 20 4-1 11-11-3-3L5 16l-1 4Z"/><path d="m14 7 3 3"/></symbol>
+  <symbol id="i-kol" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M16 5a3 3 0 0 1 0 6M18 14a5 5 0 0 1 3 6"/></symbol>
+  <symbol id="i-wechat" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-4-7.5"/><path d="M8 10h.01M13 10h.01M8 15h6"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.4 1a8 8 0 0 0-1.7-1L14.5 3h-5l-.4 3.1a8 8 0 0 0-1.7 1l-2.4-1-2 3.4L5 11a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.4-1a8 8 0 0 0 1.7 1l.4 3.1h5l.4-3.1a8 8 0 0 0 1.7-1l2.4 1 2-3.4-2-1.5a7 7 0 0 0 .1-1Z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 1.4 6.6L20 10l-6.6 1.4L12 18l-1.4-6.6L4 10l6.6-1.4L12 2Z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z"/><path d="M22 2 11 13"/></symbol>
+  <symbol id="i-warning" viewBox="0 0 24 24"><path d="m12 3 10 18H2L12 3Z"/><path d="M12 9v5M12 18h.01"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></symbol>
+  <symbol id="i-package" viewBox="0 0 24 24"><path d="m3 7 9-4 9 4-9 4-9-4Z"/><path d="m3 7 9 4v10l-9-4V7Zm18 0-9 4v10l9-4V7Z"/></symbol>
+  <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3M7 12h10"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 5h12v12H3zM15 9h4l3 4v4h-7"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 6v5h-5M4 18v-5h5"/><path d="M6 9a7 7 0 0 1 12-2l2 4M4 13l2 4a7 7 0 0 0 12-2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><path d="M5 3h14v18H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+</svg>
+<a class="skip" href="#main">跳到主要内容</a>
+
+<div class="app">
+  <aside class="side" aria-label="主导航">
+    <a class="brand" href="index.html"><span class="brandMark" aria-hidden="true"></span><strong>伴星</strong></a>
+    <button type="button" class="btn btn-sm menuToggle" aria-expanded="false" aria-controls="navWrap"><svg class="i sm" aria-hidden="true"><use href="#i-menu"/></svg>菜单</button>
+    <div class="navWrap" id="navWrap">
+      <nav class="navList">
+        <a class="navItem" href="index.html" aria-current="page"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg>工作台</a>
+        <a class="navItem" href="orders.html"><svg class="i" aria-hidden="true"><use href="#i-orders"/></svg>订单管理<span class="count">126</span></a>
+        <span class="navItem stub" title="样片未包含此页"><svg class="i" aria-hidden="true"><use href="#i-goods"/></svg>商品管理</span>
+        <a class="navItem" href="inventory.html"><svg class="i" aria-hidden="true"><use href="#i-stock"/></svg>库存</a>
+        <span class="navItem stub" title="样片未包含此页"><svg class="i" aria-hidden="true"><use href="#i-aftersale"/></svg>售后</span>
+        <span class="navItem stub" title="样片未包含此页"><svg class="i" aria-hidden="true"><use href="#i-stats"/></svg>数据统计</span>
+        <span class="navItem stub" title="样片未包含此页"><svg class="i" aria-hidden="true"><use href="#i-ledger"/></svg>经营账本</span>
+        <span class="navItem stub" title="样片未包含此页"><svg class="i" aria-hidden="true"><use href="#i-content"/></svg>内容工坊</span>
+        <span class="navItem stub" title="样片未包含此页"><svg class="i" aria-hidden="true"><use href="#i-kol"/></svg>达人管理<span class="count">3</span></span>
+        <span class="navItem stub" title="样片未包含此页"><svg class="i" aria-hidden="true"><use href="#i-wechat"/></svg>微信助手</span>
+        <span class="navItem pending" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-wechat"/></svg>AI 客服<span class="tag">待定</span></span>
+      </nav>
+      <div class="navFoot">
+        <span class="navItem stub" title="样片未包含此页"><svg class="i" aria-hidden="true"><use href="#i-settings"/></svg>设置</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="today" aria-label="今天要办">
+        <strong>今天要办</strong>
+        <ul class="todayList">
+          <li><a class="is-bad" href="orders.html"><svg class="i sm" aria-hidden="true"><use href="#i-warning"/></svg>3 单 6 小时内必须发货</a></li>
+          <li><a class="is-warn" href="order-detail.html">1 单买家已申请退款，先别发</a></li>
+          <li><a href="inventory.html">B1021 批次放了 3 天，建议先发</a></li>
+        </ul>
+        <details class="more">
+          <summary>还有 3 条</summary>
+          <ul class="popover">
+            <li><a href="orders.html">待打单 21 单</a></li>
+            <li><a href="inventory.html">5 斤纸箱约够发 2 天</a></li>
+            <li><a href="index.html#queue">3 个达人待跟进</a></li>
+          </ul>
+        </details>
+      </div>
+      <div class="tools">
+        <button type="button" class="btn btn-sm">老板视角<svg class="i sm" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+        <button type="button" class="iconBtn" aria-label="通知，3 条未读"><svg class="i" aria-hidden="true"><use href="#i-bell"/></svg><span class="dotCount" aria-hidden="true">3</span></button>
+        <span class="avatar" aria-label="示例账号">示</span>
+      </div>
+    </header>
+
+    <main class="content" id="main">
+      <div class="pageHead">
+        <div>
+          <h1>工作台</h1>
+          <p>10 月 28 日 星期三，今天还有 5 件事要办 <span class="tag">示例数据</span></p>
+        </div>
+      </div>
+
+      <form class="ai" action="#" onsubmit="return false" aria-label="AI 助手">
+        <div class="aiRow">
+          <span class="aiLabel"><svg class="i sm" aria-hidden="true"><use href="#i-spark"/></svg>AI 助手</span>
+          <label class="visually-hidden" for="ai-q">告诉 AI 要办什么</label>
+          <input class="input" id="ai-q" type="text" placeholder="有什么要办的直接说，比如：今天还有多少单没打">
+          <button type="submit" class="btn btn-primary"><svg class="i sm" aria-hidden="true"><use href="#i-send"/></svg>发送</button>
+        </div>
+        <div class="aiChips">
+          <button type="button">今天还有多少单没打</button>
+          <button type="button">哪些还没收钱</button>
+          <button type="button">把快超时的单挑出来</button>
+          <button type="button">写个芒果的抖音文案</button>
+        </div>
+      </form>
+
+      <section class="stats" aria-label="今日概况">
+        <div class="stat"><small>待打单</small><span class="figure">21<em>单</em></span><span>其中 3 单 6 小时内到期</span></div>
+        <div class="stat"><small>今日新增订单</small><span class="figure">249<em>单</em></span><span>抖店 162，拼多多 87</span></div>
+        <div class="stat"><small>售后待处理</small><span class="figure">3<em>单</em></span><span>最早一单等了 5 小时</span></div>
+        <div class="stat"><small>果品现存</small><span class="figure">2,860<em>斤</em></span><span>4 个批次有货</span></div>
+      </section>
+
+      <div class="grid-main">
+        <section class="card" id="queue" aria-labelledby="queue-h">
+          <div class="cardHead">
+            <div>
+              <h2 id="queue-h">今日任务队列</h2>
+              <p>按截止时间排，最急的在最上面</p>
+            </div>
+            <div class="chips" role="group" aria-label="按岗位看">
+              <button type="button" class="chip" aria-pressed="true">全部 <b>5</b></button>
+              <button type="button" class="chip" aria-pressed="false">打单 <b>2</b></button>
+              <button type="button" class="chip" aria-pressed="false">库管 <b>2</b></button>
+              <button type="button" class="chip" aria-pressed="false">运营 <b>1</b></button>
+            </div>
+          </div>
+          <ol class="queue">
+            <li>
+              <span class="due bad">剩 2 小时</span>
+              <div class="what"><strong>3 单抖店订单必须在 16:00 前发货</strong><span>示例店铺A，示例商品-红富士 5 斤中果</span></div>
+              <div class="who"><span class="tag">打单</span><a class="btn btn-sm" href="orders.html">去处理</a></div>
+            </li>
+            <li>
+              <span class="due warn">剩 4 小时</span>
+              <div class="what"><strong>1 单买家已申请退款，打单前先拦下</strong><span>订单 示例-1028-0007，还没出面单</span></div>
+              <div class="who"><span class="tag">打单</span><a class="btn btn-sm" href="order-detail.html">看订单</a></div>
+            </li>
+            <li>
+              <span class="due warn">今天下班前</span>
+              <div class="what"><strong>B1021 批次放了 3 天，安排今天先发</strong><span>示例商品-贵妃芒，还剩 180 斤</span></div>
+              <div class="who"><span class="tag">库管</span><a class="btn btn-sm" href="inventory.html">看批次</a></div>
+            </li>
+            <li>
+              <span class="due calm">今天</span>
+              <div class="what"><strong>登记今早进货 1,000 斤</strong><span>示例商品-红富士，供货方：示例果园</span></div>
+              <div class="who"><span class="tag">库管</span><a class="btn btn-sm" href="inventory.html">去登记</a></div>
+            </li>
+            <li>
+              <span class="due calm">今天</span>
+              <div class="what"><strong>跟进 3 位达人的寄样进度</strong><span>示例达人甲、乙、丙，样品已寄出 2 天</span></div>
+              <div class="who"><span class="tag">运营</span><span class="btn btn-sm" aria-disabled="true" title="样片未包含达人页">去跟进</span></div>
+            </li>
+          </ol>
+        </section>
+
+        <div class="stack">
+          <section class="card" aria-labelledby="warn-h">
+            <div class="cardHead"><h2 id="warn-h">异常提醒</h2></div>
+            <ul class="notes">
+              <li><svg class="i sm bad" aria-hidden="true"><use href="#i-warning"/></svg><div><p><strong class="bad">售后率 3.8%，超过提醒线 3%</strong></p><a href="#">本周多在示例快递B</a></div></li>
+              <li><svg class="i sm warn" aria-hidden="true"><use href="#i-package"/></svg><div><p class="warn">5 斤纸箱约够发 2 天</p><a href="inventory.html">看包材库存</a></div></li>
+              <li><svg class="i sm warn" aria-hidden="true"><use href="#i-truck"/></svg><div><p class="warn">5 个包裹物流停滞超过 24 小时</p><a href="orders.html">看包裹物流</a></div></li>
+            </ul>
+          </section>
+
+          <section class="card" aria-labelledby="quick-h">
+            <div class="cardHead"><h2 id="quick-h">快捷入口</h2></div>
+            <nav class="shortcuts" aria-label="快捷入口">
+              <a href="orders.html"><svg class="i" aria-hidden="true"><use href="#i-orders"/></svg>批量打单</a>
+              <a href="orders.html"><svg class="i" aria-hidden="true"><use href="#i-scan"/></svg>出库核对</a>
+              <a href="inventory.html"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>登记入库</a>
+              <a href="inventory.html"><svg class="i" aria-hidden="true"><use href="#i-stock"/></svg>登记损耗</a>
+              <a href="orders.html"><svg class="i" aria-hidden="true"><use href="#i-truck"/></svg>包裹物流</a>
+              <a href="order-detail.html"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>最近订单</a>
+            </nav>
+          </section>
+        </div>
+      </div>
+
+      <p class="sampleNote">视觉样片，所有店铺、商品、订单与数字均为示例，不连接任何系统。</p>
+    </main>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.menuToggle').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var side = b.closest('.side'); var open = side.classList.toggle('is-open');
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+  document.querySelectorAll('.chips[role="group"]').forEach(function (g) {
+    g.addEventListener('click', function (e) {
+      var c = e.target.closest('.chip'); if (!c) return;
+      g.querySelectorAll('.chip').forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+    });
+  });
+</script>
+</body>
+</html>
